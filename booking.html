@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Stay | The Golden Acacia Boutique Hotel</title>
+    <link rel="stylesheet" href="booking.css">
+</head>
+<body>
+
+    <header>
+        <h1>The Golden Acacia Boutique Hotel</h1>
+    </header>
+
+    
+    <nav>
+        <a href="code.html#home">Home</a>
+        <a href="code.html#rooms">Rooms</a>
+        <a href="code.html#About Us">About Us</a>
+        <a href="code.html#Book Now">Book Now</a>
+        <a href="code.html#Contact">Contact</a> 
+    </nav>
+
+    <section id="booking">
+        <h2>Reserve Your Stay at The Golden Acacia</h2>
+        <p>We’re excited to welcome you to our boutique hotel in Machakos! Complete the form below to reserve your stay.</p>
+
+        
+        <form id="bookin-form" onsubmit="return showBookingMessage();">
+            <div class="form-group">
+                <label for="room-type">Room Type</label>
+                <select id="room-type" name="room-type" required>
+                    <option value="deluxe">Deluxe Suite</option>
+                    <option value="standard">Standard Room</option>
+                    <option value="luxury">Luxury Suite</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="check-in">Check-in Date</label>
+                <input type="date" id="check-in" name="check-in" required>
+            </div>
+
+            <div class="form-group">
+                <label for="check-out">Check-out Date</label>
+                <input type="date" id="check-out" name="check-out" required>
+            </div>
+
+            <div class="form-group">
+                <button type="submit" class="reserve-btn">Reserve Now</button>
+            </div>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 The Golden Acacia Boutique Hotel | All Rights Reserved</p>
+    </footer>
+    <script>
+       function showBookingMessage() {
+  
+    var roomType = document.getElementById('room-type').value;
+    var checkInDate = document.getElementById('check-in').value;
+    var checkOutDate = document.getElementById('check-out').value;
+
+    const modal = document.createElement('div');
+    modal.style.position = 'fixed';
+    modal.style.top = '50%';
+    modal.style.left = '50%';
+    modal.style.transform = 'translate(-50%, -50%)';
+    modal.style.padding = '20px';
+    modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+    modal.style.color = '#fff';
+    modal.style.borderRadius = '8px';
+    modal.style.textAlign = 'center';
+    modal.style.zIndex = '9999';
+    modal.innerHTML = `
+        <h2>Booking Successful!</h2>
+        <p>You have successfully booked a ${roomType}.</p>
+        <p>Check-in Date: ${checkInDate}</p>
+        <p>Check-out Date: ${checkOutDate}</p>
+        <button onclick="this.parentElement.remove()">Close</button>
+    `;
+    document.body.appendChild(modal);
+
+    
+    return false;
+}
+        
+    </script>
+</body>
+</html>
